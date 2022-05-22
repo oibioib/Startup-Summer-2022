@@ -23,16 +23,19 @@ class App extends Component {
         this.gitHubApi
             .getUser(searchStr)
             .then((data) => {
-                this.setState({
+                this.setState((state) => ({
                     user: data,
                     loading: false
-                });
+                }));
+            })
+            .then(() => {
+                this.getUserRepos(searchStr, this.state.page, this.state.perPage);
             })
             .catch((e) => {
                 this.setState((state) => ({
                     user: null,
                     loading: false
-                }))
+                }));
             });
     };
 
@@ -42,28 +45,32 @@ class App extends Component {
             .then((data) => {
                 this.setState({
                     userRepos: data,
+                    loading: false
                 });
             })
             .catch((e) => {
                 this.setState((state) => ({
                     userRepos: null,
                     loading: false
-                }))
+                }));
             });
     };
 
     doSearch = async (searchStr) => {
         this.setState((state) => ({
             searchStr,
+            user: null,
+            userRepos: null,
+            page: 1,
             loading: true
         }));
+
         this.getUser(searchStr);
-        this.getUserRepos(searchStr, this.state.page, this.state.perPage);
     };
 
     doUpdatePage = (page) => {
         this.setState((state) => ({
-            page: page,
+            page: page
         }));
         this.getUserRepos(this.state.searchStr, page, this.state.perPage);
     };
@@ -72,7 +79,7 @@ class App extends Component {
         return (
             <>
                 <Header doSearch={this.doSearch} />
-                <div className={(this.state.user && !this.state.loading && 'content f-column') || 'content' }>
+                <div className={(this.state.user && !this.state.loading && 'content f-column') || 'content'}>
                     <MainPage
                         data={this.state}
                         doUpdatePage={(selectedPage) => this.doUpdatePage(selectedPage)} />
