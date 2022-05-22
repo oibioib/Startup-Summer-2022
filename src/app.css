@@ -1,0 +1,334 @@
+.content {
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 31px 51px;
+    min-height: calc(100vh - 72px);
+}
+
+h1 {
+    font-size: 32px;
+}
+
+/* -- Header-- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+    background-color: var(--main-color);
+}
+
+.header-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1366px;
+    padding: 0 42px;
+}
+
+.header-logo {
+    width: 42px;
+    margin-right: 21px;
+    height: 40px;
+}
+
+.header-search {
+    position: relative;
+    width: 500px;
+}
+
+.header-search-icon {
+    position: absolute;
+    left: 20px;
+    top: 13px;
+}
+
+.header-search_input {
+    width: 100%;
+}
+
+.header-search_input input {
+    width: 100%;
+    height: 40px;
+    padding: 0 14px 0 46px;
+    border-radius: 6px;
+    outline: 0;
+    border: transparent;
+    font-size: 14px;
+    transition: box-shadow .3s;
+    font-family: var(--main-font);
+}
+
+.header-search_input input:focus {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.55)
+}
+
+.header-search_input input::placeholder {
+    color: var(--secondary-color);
+}
+
+.header-search_input input:focus::placeholder {
+    color: transparent;
+}
+
+.header-search_input input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+/* -- end Header-- */
+
+
+/* -- UserInfo -- */
+.user-info {
+    max-width: 292px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info_img {
+    width: auto;
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: 32px;
+}
+
+.user-info_name {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+.user-info_link {
+    color: var(--main-color);
+    font-size: 18px;
+    margin-bottom: 33px;
+}
+
+
+.user-info_followers {
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.user-info_followers span {
+    margin-right: 16px;
+    margin-bottom: 5px;
+}
+
+.user-info_followers .ico {
+    color: var(--secondary-color);
+    height: 14px;
+    padding-right: 8px;
+}
+/* -- end UserInfo-- */
+
+
+/* -- UserRepos-- */
+.user-info-repos {
+    flex: 1 1;
+    padding-left: 98px;
+}
+
+.user-info-repos_list {
+    width: auto;
+    margin-bottom: 27px;
+}
+
+.user-info-repos_list h1 {
+    margin-bottom: 26px;
+}
+
+.repos-item {
+    width: auto;
+    background-color: var(--color-white);
+    margin-bottom: 24px;
+    padding: 27px 32px;
+    border-radius: 6px;
+    transition: box-shadow .3s;
+}
+
+.repos-item:last-child{
+    margin-bottom: 0;
+}
+
+.repos-item:hover {
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15)
+}
+
+.repos-item_link {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.repos-item_description {
+    padding-top: 12px;
+    font-size: 16px;
+}
+/* -- end UserRepos -- */
+
+
+/* -- InfoMessage -- */
+.info-message {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.info-message_text {
+    max-width: 210px;
+    margin-top: 24px;
+    font-size: 22px;
+    color: var(--secondary-color);
+    text-align: center;
+}
+/* -- end InfoMessage -- */
+
+
+/* -- react-paginate -- */
+.paginate {
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+
+.paginate ul {
+    display: flex;
+    list-style: none;
+    justify-content: right;
+}
+
+.paginate li {
+    padding: 5px 8px;
+    margin: 0 2px;
+    color: var(--secondary-color)
+}
+
+.paginate li a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.paginate li:hover a {
+    color: var(--main-color);
+}
+
+.paginate li.selected {
+    margin: 0 8px;
+    color: var(--color-white);
+    background-color: var(--main-color);
+    border-radius: 3px;
+    transition: opacity.3s;
+}
+
+.paginate li.selected:hover {
+    opacity: .8;
+}
+
+.paginate li.selected a,
+.paginate li.selected a:hover {
+    color: var(--color-white);
+}
+
+.paginate li.disabled {
+    display: none;
+}
+
+.paginate-summary {
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    color: var(--secondary-color)
+}
+/* -- end react-paginate -- */
+
+
+/* -- spinner -- */
+.spinner-wrapper{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+}
+/* -- end spinner -- */
+
+
+/* -- Responsive-- */
+@media screen and (max-width: 992px) {
+    .user-info {
+        width: 270px;
+    }
+
+    .user-info-repos {
+        padding-left: 42px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .f-column {
+        flex-direction: column;
+    }
+    
+    .header-wrapper {
+        padding: 0 21px;
+    }
+
+    .content {
+        padding: 21px;
+        align-items: center;
+        /* flex-direction: column; */
+    }
+
+    .user-info {
+        margin-bottom: 42px;
+        align-items: center;
+    }
+
+    .user-info_followers {
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .user-info_followers span {
+        margin-right: 16px;
+    }
+
+    .user-info-repos {
+        padding: 0;
+        width: 100%;
+    }
+
+    .user-info-repos_list h1 {
+        font-size: 25px;
+        margin-bottom: 21px;
+    }
+
+    .paginate {
+        flex-direction: column;
+    }
+
+    .paginate-summary {
+        justify-content: right;
+        margin-bottom: 11px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .user-info_img {
+        width: 200px;
+        align-self: center;
+    }
+
+    .paginate li.break {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+/* -- end Responsive -- */
