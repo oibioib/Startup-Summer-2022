@@ -1,25 +1,22 @@
+import { Octokit } from "octokit";
+    
+    
 class GitHubApi {
-    _apiBase = 'https://api.github.com/users/';
-    // _perPage = 4;
-
+    
     getResource = async (url, params = {}) => {
-        const query = Object.keys(params)
-             .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-             .join('&');
-
-        // const urlWithParams = url + query ? '?':'' + query;
-        const urlWithParams = url + '?' + query;
-
-        const res = await fetch(urlWithParams);
-        if (!res.ok) {
-            throw new Error(`Could not fetch ${url}, status: ${res.status}`);
-        }
-        return await res.json();
+        // https://stackoverflow.com/questions/49579028/adding-an-env-file-to-react-project
+        // https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+        const _API_KEY = process.env.REACT_APP_GITHUB_API_TOKEN;
+        const octokit = new Octokit({
+            auth: _API_KEY,
+        });
+        const res = await octokit.request(url, params);
+        return await res.data;
     };
 
-    getUserRepos = async (name, page, perPage) => {
-        const repos = await this.getResource(`${this._apiBase}${name}/repos`, { per_page: perPage, page: page })
-        return repos.map(this._prepareUserRepos);
+    getUserRepos = async (username, page, perPage) => {
+        const reposData = await this.getResource(`GET /users/{username}/repos`, { username: username, per_page: perPage, page: page })
+        return reposData.map(this._prepareUserRepos);
     };
 
     _prepareUserRepos = (userRepos) => {
@@ -31,10 +28,9 @@ class GitHubApi {
         };
     };
 
-    getUser = async (name) => {
-        console.log(`${this._apiBase}${name}`);
-        const data = await this.getResource(`${this._apiBase}${name}`);
-        return this._prepareUser(data);
+    getUser = async (username) => {
+        const userData = await this.getResource(`GET /users/{username}`, {username: username});
+        return this._prepareUser(userData);
     };
 
     _prepareUser = (userData) => {

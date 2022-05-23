@@ -32,6 +32,7 @@ class App extends Component {
                 this.getUserRepos(searchStr, this.state.page, this.state.perPage);
             })
             .catch((e) => {
+                console.log(`No such user (Error: ${e.name}. Message: ${e.message}.)`);
                 this.setState((state) => ({
                     user: null,
                     loading: false
