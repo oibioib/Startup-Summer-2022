@@ -3,7 +3,7 @@
     width: 100%;
     max-width: 1366px;
     margin: 0 auto;
-    padding: 31px 51px;
+    padding: 31px 41px;
     min-height: calc(100vh - 72px);
 }
 
@@ -75,6 +75,7 @@ h1 {
 .header-search_input input:focus::-webkit-input-placeholder {
     color: transparent;
 }
+
 /* -- end Header-- */
 
 
@@ -122,6 +123,7 @@ h1 {
     height: 14px;
     padding-right: 8px;
 }
+
 /* -- end UserInfo-- */
 
 
@@ -129,12 +131,16 @@ h1 {
 .user-info-repos {
     flex: 1 1;
     padding-left: 98px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .user-info-repos_list {
     width: auto;
     margin-bottom: 27px;
+}
+
+.user-info-repos>* {
+    margin: 0 10px;
 }
 
 .user-info-repos_list h1 {
@@ -151,12 +157,8 @@ h1 {
     overflow-x: hidden;
 }
 
-.repos-item:last-child{
-    margin-bottom: 0;
-}
-
 .repos-item:hover {
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15)
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15)
 }
 
 .repos-item_link {
@@ -170,6 +172,7 @@ h1 {
     padding-top: 12px;
     font-size: 16px;
 }
+
 /* -- end UserRepos -- */
 
 
@@ -191,6 +194,7 @@ h1 {
     color: var(--secondary-color);
     text-align: center;
 }
+
 /* -- end InfoMessage -- */
 
 
@@ -249,16 +253,18 @@ h1 {
     margin-right: 16px;
     color: var(--secondary-color)
 }
+
 /* -- end react-paginate -- */
 
 
 /* -- spinner -- */
-.spinner-wrapper{
-    display:flex;
+.spinner-wrapper {
+    display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     width: 100%;
 }
+
 /* -- end spinner -- */
 
 
@@ -277,13 +283,13 @@ h1 {
     .f-column {
         flex-direction: column;
     }
-    
+
     .header-wrapper {
         padding: 0 21px;
     }
 
     .content {
-        padding: 21px;
+        padding: 11px;
         align-items: center;
         /* flex-direction: column; */
     }
@@ -292,6 +298,7 @@ h1 {
         margin: 21px auto 42px;
         align-items: center;
     }
+
     .user-info_name {
         text-align: center;
     }
@@ -300,7 +307,7 @@ h1 {
         align-items: center;
         justify-content: center;
     }
-    
+
     .user-info_followers span {
         margin-right: 16px;
     }
@@ -336,4 +343,5 @@ h1 {
         padding-right: 0;
     }
 }
+
 /* -- end Responsive -- */

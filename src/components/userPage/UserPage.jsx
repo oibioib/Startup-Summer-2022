@@ -31,7 +31,6 @@ class UserPage extends Component {
         // Don't show pagination links if number of items less then limit per page. 
         const isPagination = totalItems > perPage;
 
-
         // Check if there is only one item on page, for show pagination summary like XX of XX
         if (firstIndex === lastIndex) {
             return [`${lastIndex} of ${totalItems}`, isPagination];
@@ -68,15 +67,15 @@ class UserPage extends Component {
         return (
             <>
                 <UserInfo user={user}/>
-                {!totalRepos && <InfoMessage reason="emptyuser"/>}
+                {!totalRepos && <InfoMessage reason="emptyuser" />}
                 {totalRepos > 0 &&
                     <div className="user-info-repos" >
-                        <ShowRepos pageCount={totalRepos} allRepos={allRepos}/>
+                        <ShowRepos pageCount={totalRepos} allRepos={allRepos} />
                         <div className="paginate">
                             <div className="paginate-summary">
                                 {paginationInfo}
                             </div>
-                            {isPagination && <ReactPaginate {...paginationProp}/>}
+                            {isPagination && <ReactPaginate {...paginationProp} />}
                         </div>
                     </div>
                 }

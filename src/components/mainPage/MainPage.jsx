@@ -16,7 +16,6 @@ const MainPage = ({ data, doUpdatePage }) => {
                 (!searchStr &&
                     <InfoMessage
                         reason="initial" />) ||
-
                 (user && userRepos &&
                     <UserPage
                         {...data}
