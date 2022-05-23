@@ -147,6 +147,7 @@ h1 {
     padding: 27px 32px;
     border-radius: 6px;
     transition: box-shadow .3s;
+    overflow-x: hidden;
 }
 
 .repos-item:last-child{
@@ -289,6 +290,9 @@ h1 {
     .user-info {
         margin-bottom: 42px;
         align-items: center;
+    }
+    .user-info_name {
+        text-align: center;
     }
 
     .user-info_followers {

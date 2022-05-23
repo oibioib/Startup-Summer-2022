@@ -29,7 +29,7 @@ class UserPage extends Component {
         const lastIndex = maxIndex <= totalItems ? maxIndex : totalItems;
 
         // Don't show pagination links if number of items less then limit per page. 
-        const isPagination = totalItems >= perPage;
+        const isPagination = totalItems > perPage;
 
 
         // Check if there is only one item on page, for show pagination summary like XX of XX
