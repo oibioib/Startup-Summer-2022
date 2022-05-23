@@ -129,6 +129,7 @@ h1 {
 .user-info-repos {
     flex: 1 1;
     padding-left: 98px;
+    overflow:hidden;
 }
 
 .user-info-repos_list {
@@ -288,7 +289,7 @@ h1 {
     }
 
     .user-info {
-        margin-bottom: 42px;
+        margin: 21px auto 42px;
         align-items: center;
     }
     .user-info_name {
